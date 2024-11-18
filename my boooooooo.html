@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I’m Sorry, My Love</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #ffe6e6, #ffcccc);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3.5em;
+            color: #ff4c4c;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+        }
+        h2 {
+            font-size: 2em;
+            color: #ff6f6f;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 15px 0;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6f6f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s;
+            animation: fadeIn 2s ease;
+        }
+        button:hover {
+            background-color: #ff4c4c;
+        }
+        .mistake {
+            font-size: 1.5em;
+            color: #ff4c4c;
+            margin: 20px 0;
+            animation: slideIn 1s ease-in-out;
+        }
+        .heart {
+            font-size: 5em;
+            color: #ff4c4c;
+            animation: beat 0.6s infinite alternate;
+            margin: 20px 0;
+        }
+        .letter {
+            font-size: 1.2em;
+            color: #333;
+            background: #fff4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            line-height: 1.8;
+            animation: fadeIn 2s ease;
+        }
+        #background {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+            animation: darken 1.5s ease;
+        }
+        audio {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes beat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        @keyframes darken {
+            from { background: rgba(0, 0, 0, 0); }
+            to { background: rgba(0, 0, 0, 0.7); }
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    <h1>I'm Sorry, My Love 😔</h1>
+    <p id="intro">I’ve made mistakes, and I want to make it up to you. Click below to uncover my apology.</p>
+    <button onclick="showMistakes()">Reveal My Mistakes</button>
+    <p class="mistake" id="mistake"></p>
+    <p class="heart" id="heart" style="display: none;">❤️</p>
+
+    <div id="letter" class="letter" style="display: none;">
+        <h2>My Love Letter to You 💌</h2>
+        <p>
+            I am very dumb and stupid. I want to change and be a better man for you. I want you to know how much I love you.
+        </p>
+        <p>
+            I love so many things about you—it’s hard to know where to start.
+        </p>
+        <p>
+            I love that you’re a badass Valorant player, someone who can frag like a pro and still make me laugh in the middle of a match. You’re my favorite teammate, in-game and in life.
+        </p>
+        <p>
+            I love how we share those late-night gaming sessions, strategizing together, messing around, and creating memories that make every match special—even when I mess up, you somehow make it fun.
+        </p>
+        <p>
+            I love how connected we are, even online. Whether we’re gaming, talking, or just existing in the same virtual space, you make it feel like we’re right there next to each other.
+        </p>
+        <p>
+            You’re my player two, my clutch queen, and my favorite part of every day.
+        </p>
+    </div>
+
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="https://drive.google.com/uc?export=download&id=1jf1Q3nHxdiVKKQrwyalrBzlnargLXqIl" type="audio">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const mistakes = [
+            "Mistake 1: Never listening to you.",
+            "Mistake 2: Always bothering you.",
+            "Mistake 3: Never letting you sleep.",
+            "Mistake 4: Never understanding where you come from."
+        ];
+
+        let index = 0;
+
+        function showMistakes() {
+            const mistakeElement = document.getElementById("mistake");
+            const heart = document.getElementById("heart");
+            const letter = document.getElementById("letter");
+
+            if (index < mistakes.length) {
+                mistakeElement.innerText = mistakes[index];
+                index++;
+            } else {
+                mistakeElement.innerText = "I'm truly sorry for everything, my love. 💋";
+                heart.style.display = "block";
+                setTimeout(() => {
+                    letter.style.display = "block";
+                }, 2000); // Reveal letter after 2 seconds
+            }
+        }
+    </script>
+</body>
+</html>
